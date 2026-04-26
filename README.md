@@ -70,3 +70,5 @@ To deploy this application effectively, we recommend deploying them as **two sep
 6. Click **Deploy**.
 
 🎉 You now have a high-performance, fully detached full-stack application successfully hosted on Vercel!
+
+Leave a Star if you like it
