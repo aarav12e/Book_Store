@@ -20,22 +20,16 @@ function Course() {
     <>
       <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4">
         <div className="mt-28 items-center justify-center text-center">
-          <h1 className="text-2xl  md:text-4xl">
+          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
             We're delighted to have you{" "}
-            <span className="text-pink-500"> Here! :)</span>
+            <span className="text-gradient"> Here! :)</span>
           </h1>
-          <p className="mt-12">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro,
-            assumenda? Repellendus, iste corrupti? Tempore laudantium
-            repellendus accusamus accusantium sed architecto odio, nisi expedita
-            quas quidem nesciunt debitis dolore non aspernatur praesentium
-            assumenda sint quibusdam, perspiciatis, explicabo sequi fugiat amet
-            animi eos aut. Nobis quisquam reiciendis sunt quis sed magnam
-            consequatur!
+          <p className="mt-8 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Explore our vast collection of premium courses designed to elevate your skills. From programming to design, we have something for everyone. Start your journey today!
           </p>
           <Link to="/">
-            <button className="mt-6 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-300">
-              Back
+            <button className="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              Back to Home
             </button>
           </Link>
         </div>

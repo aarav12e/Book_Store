@@ -1,9 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Poppins", sans-serif;
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-[#0f172a] text-slate-100;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-white/70 dark:bg-[#1e293b]/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500;
+  }
 }

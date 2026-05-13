@@ -20,30 +20,28 @@ function Signup() {
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post(`${import.meta.env.VITE_API_URL || "http://localhost:4001"}/user/signup`, userInfo)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          toast.success("Signup Successfully");
-          navigate(from, { replace: true });
-        }
+    
+    const signupPromise = axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4001"}/user/signup`, userInfo);
+    
+    toast.promise(signupPromise, {
+      loading: 'Creating your account...',
+      success: (res) => {
         localStorage.setItem("Users", JSON.stringify(res.data.user));
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.log(err);
-          toast.error("Error: " + err.response.data.message);
-        }
-      });
+        setTimeout(() => {
+          navigate(from, { replace: true });
+          window.location.reload();
+        }, 1000);
+        return "Signup Successfully";
+      },
+      error: (err) => `Error: ${err.response?.data?.message || err.message}`
+    });
   };
   return (
     <>
-      <div className="flex h-screen items-center justify-center">
-        <div className=" w-[600px] ">
-          <div className="modal-box">
-            <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-              {/* if there is a button in form, it will close the modal */}
+      <div className="flex h-screen items-center justify-center bg-slate-50 dark:bg-[#0f172a]">
+        <div className="w-full max-w-md px-4">
+          <div className="modal-box glassmorphism rounded-2xl p-8 dark:text-white">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <Link
                 to="/"
                 className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -52,13 +50,12 @@ function Signup() {
               </Link>
 
               <h3 className="font-bold text-lg">Signup</h3>
-              <div className="mt-4 space-y-2">
-                <span>Name</span>
-                <br />
+              <div className="mt-6 space-y-2">
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
                 <input
                   type="text"
                   placeholder="Enter your fullname"
-                  className="w-80 px-3 py-1 border rounded-md outline-none"
+                  className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white/50 dark:bg-slate-800/50 transition-all duration-300"
                   {...register("fullname", { required: true })}
                 />
                 <br />
@@ -68,14 +65,12 @@ function Signup() {
                   </span>
                 )}
               </div>
-              {/* Email */}
               <div className="mt-4 space-y-2">
-                <span>Email</span>
-                <br />
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-80 px-3 py-1 border rounded-md outline-none"
+                  className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white/50 dark:bg-slate-800/50 transition-all duration-300"
                   {...register("email", { required: true })}
                 />
                 <br />
@@ -85,14 +80,12 @@ function Signup() {
                   </span>
                 )}
               </div>
-              {/* Password */}
               <div className="mt-4 space-y-2">
-                <span>Password</span>
-                <br />
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Enter your password"
-                  className="w-80 px-3 py-1 border rounded-md outline-none"
+                  className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white/50 dark:bg-slate-800/50 transition-all duration-300"
                   {...register("password", { required: true })}
                 />
                 <br />
@@ -102,13 +95,12 @@ function Signup() {
                   </span>
                 )}
               </div>
-              {/* Button */}
-              <div className="flex justify-around mt-4">
-                <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
+              <div className="flex flex-col gap-4 mt-8">
+                <button className="w-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium rounded-xl px-4 py-3 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                   Signup
                 </button>
-                <p className="text-xl">
-                  Have account?{" "}
+                <p className="text-center text-slate-600 dark:text-slate-400">
+                  Already have an account?{" "}
                   <button
                     className="underline text-blue-500 cursor-pointer"
                     onClick={() =>

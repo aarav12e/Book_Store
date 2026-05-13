@@ -15,50 +15,42 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post(`${import.meta.env.VITE_API_URL || "http://localhost:4001"}/user/login`, userInfo)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          toast.success("Loggedin Successfully");
-          document.getElementById("my_modal_3").close();
-          setTimeout(() => {
-            window.location.reload();
-            localStorage.setItem("Users", JSON.stringify(res.data.user));
-          }, 1000);
-        }
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.log(err);
-          toast.error("Error: " + err.response.data.message);
-          setTimeout(() => {}, 2000);
-        }
-      });
+    
+    const loginPromise = axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:4001"}/user/login`, userInfo);
+    
+    toast.promise(loginPromise, {
+      loading: 'Logging in...',
+      success: (res) => {
+        document.getElementById("my_modal_3").close();
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        return "Logged In Successfully";
+      },
+      error: (err) => `Error: ${err.response?.data?.message || err.message}`
+    });
   };
   return (
     <div>
-      <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
-          <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            {/* if there is a button in form, it will close the modal */}
-            <Link
-              to="/"
+      <dialog id="my_modal_3" className="modal backdrop-blur-sm">
+        <div className="modal-box glassmorphism rounded-2xl p-8 dark:text-white max-w-md w-full">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <button
+              type="button"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
               onClick={() => document.getElementById("my_modal_3").close()}
             >
               ✕
-            </Link>
+            </button>
 
             <h3 className="font-bold text-lg">Login</h3>
-            {/* Email */}
-            <div className="mt-4 space-y-2">
-              <span>Email</span>
-              <br />
+            <div className="mt-6 space-y-2">
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-80 px-3 py-1 border rounded-md outline-none"
+                className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white/50 dark:bg-slate-800/50 transition-all duration-300"
                 {...register("email", { required: true })}
               />
               <br />
@@ -68,14 +60,12 @@ function Login() {
                 </span>
               )}
             </div>
-            {/* password */}
             <div className="mt-4 space-y-2">
-              <span>Password</span>
-              <br />
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="w-80 px-3 py-1 border rounded-md outline-none"
+                className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white/50 dark:bg-slate-800/50 transition-all duration-300"
                 {...register("password", { required: true })}
               />
               <br />
@@ -86,12 +76,11 @@ function Login() {
               )}
             </div>
 
-            {/* Button */}
-            <div className="flex justify-around mt-6">
-              <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
+            <div className="flex flex-col gap-4 mt-8">
+              <button className="w-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium rounded-xl px-4 py-3 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                 Login
               </button>
-              <p>
+              <p className="text-center text-slate-600 dark:text-slate-400">
                 Not registered?{" "}
                 <Link
                   to="/signup"
