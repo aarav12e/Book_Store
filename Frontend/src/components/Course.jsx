@@ -28,7 +28,7 @@ function Course() {
             Explore our vast collection of premium courses designed to elevate your skills. From programming to design, we have something for everyone. Start your journey today!
           </p>
           <Link to="/">
-            <button className="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <button className="mt-8 px-8 py-3 rounded-full bg-gradient-theme text-white font-medium hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               Back to Home
             </button>
           </Link>

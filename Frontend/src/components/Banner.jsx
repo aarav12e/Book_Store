@@ -26,7 +26,7 @@ function Banner() {
               <input type="email" className="grow outline-none bg-transparent" placeholder="Enter your email" />
             </label>
           </div>
-          <button className="btn mt-6 rounded-full px-8 py-3 bg-gradient-to-r from-pink-500 to-violet-500 text-white border-none hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">Get Started</button>
+          <button className="btn mt-6 rounded-full px-8 py-3 bg-gradient-theme text-white border-none hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">Get Started</button>
         </div>
         <div className="order-1 w-full mt-20 md:w-1/2 flex justify-center items-center">
           <img

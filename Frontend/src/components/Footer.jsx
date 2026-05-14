@@ -8,7 +8,7 @@ function Footer() {
       <section id="about" className="py-20 px-4 md:px-20 bg-gradient-to-br from-pink-50 to-violet-50 dark:from-slate-900 dark:to-slate-800">
         <div className="max-w-screen-xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
-            About <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">BookStore</span>
+            About <span className="text-gradient">BookStore</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12 text-lg">
             We are passionate about making knowledge accessible to everyone. Since 1992, we've been curating the best books on technology, business, and personal development to help you grow.
@@ -34,7 +34,7 @@ function Footer() {
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
-              Get in <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">Touch</span>
+              Get in <span className="text-gradient">Touch</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Have questions? We'd love to hear from you.</p>
           </div>
@@ -45,7 +45,7 @@ function Footer() {
               { icon: <MapPin size={24} />, label: "Address", value: "123 Library Lane, NY" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center gap-3 p-6 rounded-2xl glassmorphism hover:shadow-xl transition-all duration-300">
-                <div className="p-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-white">{item.icon}</div>
+                <div className="p-3 rounded-full bg-gradient-theme text-white">{item.icon}</div>
                 <p className="font-semibold dark:text-white">{item.label}</p>
                 <p className="text-slate-500 dark:text-slate-400 text-sm">{item.value}</p>
               </div>

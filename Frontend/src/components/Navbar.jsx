@@ -102,7 +102,7 @@ function Navbar() {
             ) : (
               <div>
                 <button
-                  className="bg-gradient-to-r from-pink-500 to-violet-500 text-white px-4 py-2 rounded-full hover:opacity-90 transition-opacity font-medium shadow-md"
+                  className="bg-gradient-theme text-white px-4 py-2 rounded-full hover:opacity-90 transition-opacity font-medium shadow-md"
                   onClick={() => document.getElementById("my_modal_3").showModal()}
                 >
                   Login

@@ -42,7 +42,7 @@ function Cards({ item }) {
               <div className="text-xl font-bold text-slate-800 dark:text-slate-200">${item.price}</div>
               <button
                 onClick={handleBuyNow}
-                className="flex items-center gap-2 cursor-pointer px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium hover:opacity-90 hover:shadow-lg transition-all duration-300"
+                className="flex items-center gap-2 cursor-pointer px-4 py-2 rounded-full bg-gradient-theme text-white font-medium hover:opacity-90 hover:shadow-lg transition-all duration-300"
               >
                 <ShoppingCart size={16} />
                 Buy Now

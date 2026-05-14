@@ -19,6 +19,10 @@
     @apply bg-white/70 dark:bg-[#1e293b]/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500;
+    background-image: var(--theme-gradient);
+    @apply bg-clip-text text-transparent;
+  }
+  .bg-gradient-theme {
+    background-image: var(--theme-gradient);
   }
 }

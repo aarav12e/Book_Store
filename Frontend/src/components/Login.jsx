@@ -77,7 +77,7 @@ function Login() {
             </div>
 
             <div className="flex flex-col gap-4 mt-8">
-              <button className="w-full bg-gradient-to-r from-pink-500 to-violet-500 text-white font-medium rounded-xl px-4 py-3 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+              <button className="w-full bg-gradient-theme text-white font-medium rounded-xl px-4 py-3 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                 Login
               </button>
               <p className="text-center text-slate-600 dark:text-slate-400">
