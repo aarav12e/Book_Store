@@ -46,7 +46,7 @@ function Navbar() {
           sticky ? "glassmorphism py-2" : "py-4 bg-transparent"
         }`}
       >
-        <div className="navbar">
+        <div className="navbar bg-transparent p-0">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

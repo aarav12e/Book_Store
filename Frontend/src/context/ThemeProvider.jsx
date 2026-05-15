@@ -57,6 +57,9 @@ export default function ThemeProvider({ children }) {
       root.classList.remove("dark");
     }
 
+    // Sync DaisyUI theme
+    root.setAttribute("data-theme", mode);
+
     // Inject CSS custom properties so ALL components pick up the theme
     root.style.setProperty("--color-primary", theme.primary);
     root.style.setProperty("--color-secondary", theme.secondary);
