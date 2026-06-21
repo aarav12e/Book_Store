@@ -69,4 +69,4 @@ To deploy this application effectively, we recommend deploying them as **two sep
    - **Value:** `https://your-backend.vercel.app` *(The URL you got from Step 1)*
 6. Click **Deploy**.
 
-🎉 You now have a high-performance, fully detached full-stack application successfully hosted on Vercel!
+
